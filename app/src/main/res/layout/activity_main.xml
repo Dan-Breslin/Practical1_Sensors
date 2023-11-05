@@ -7,23 +7,208 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/txtView_temp_sensor"
+        android:id="@+id/txtView_humidity_Sensor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_Humidity"
+        app:layout_constraintStart_toStartOf="@+id/txtView_temp_sensor" />
+
+    <TextView
+        android:id="@+id/txt_MagField3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="19dp"
+        android:text="Geomag field on Z :"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtView_magField_Sensor3"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_magField_Sensor3"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_Rotation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="19dp"
+        android:text="Orientation on X :"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_Rot_Sensor"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_MagField3" />
+
+    <TextView
+        android:id="@+id/txt_Temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="249dp"
+        android:text="Temperature :"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_temp_sensor" />
+
+    <TextView
+        android:id="@+id/txt_Pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="22dp"
+        android:text="Pressure :"
+        app:layout_constraintBottom_toTopOf="@+id/txt_Temp"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_pressure_Sensor" />
 
     <TextView
         android:id="@+id/txtView_pressure_Sensor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="202dp"
         android:text="Hello World!"
-        app:layout_constraintEnd_toEndOf="@+id/txtView_temp_sensor"
-        app:layout_constraintStart_toStartOf="@+id/txtView_temp_sensor"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_Pressure"
+        app:layout_constraintStart_toStartOf="@+id/txtView_proximity_Sensor" />
+
+    <TextView
+        android:id="@+id/txt_Proximity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="25dp"
+        android:text="Proximity :"
+        app:layout_constraintBottom_toTopOf="@+id/txt_Pressure"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_proximity_Sensor" />
+
+    <TextView
+        android:id="@+id/txt_Humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="Humidity :"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_humidity_Sensor"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Temp" />
+
+    <TextView
+        android:id="@+id/txtView_Rot_Sensor3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_Rotation3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_Rotation3" />
+
+    <TextView
+        android:id="@+id/txt_Rotation3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="19dp"
+        android:text="Orientation on Z:"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_Rot_Sensor3"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Rotation" />
+
+    <TextView
+        android:id="@+id/txtView_magField_Sensor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="4dp"
+        android:text="Hello World!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_MagField2"
+        app:layout_constraintTop_toBottomOf="@+id/txtView_magField_Sensor" />
+
+    <TextView
+        android:id="@+id/txtView_magField_Sensor3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="4dp"
+        android:text="Hello World!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_MagField3"
+        app:layout_constraintTop_toBottomOf="@+id/txtView_magField_Sensor2" />
+
+    <TextView
+        android:id="@+id/txtView_Rot_Sensor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_Rotation2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_Rotation2" />
+
+    <TextView
+        android:id="@+id/txt_MagField2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="19dp"
+        android:text="Geomag field on Y :"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtView_magField_Sensor2"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_magField_Sensor2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtView_Rot_Sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_Rotation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_Rotation" />
+
+    <TextView
+        android:id="@+id/txt_MagField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17dp"
+        android:text="Geomag field on X :"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtView_magField_Sensor"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_magField_Sensor"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_Rotation2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="22dp"
+        android:text="Orientation on Y:"
+        app:layout_constraintBottom_toTopOf="@+id/txt_Rotation3"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_Rot_Sensor2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtView_magField_Sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="1dp"
+        android:text="Hello World!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_MagField"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtView_proximity_Sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_Proximity"
+        app:layout_constraintEnd_toEndOf="@+id/txtView_Rot_Sensor3"
+        app:layout_constraintStart_toStartOf="@+id/txtView_Rot_Sensor3" />
+
+    <TextView
+        android:id="@+id/txtView_temp_sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_Temp"
+        app:layout_constraintStart_toStartOf="@+id/txtView_pressure_Sensor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
