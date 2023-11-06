@@ -6,19 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
-    TextView temp_Output, pressure_Output, humidity_Output, magField_OutNorth,magField_OutEast,magField_OutUp,
-    rotationX_Output,rotationY_Output,rotationZ_Output, proximity_Output;
+    TextView temp_Output, pressure_Output, humidity_Output, magField_OutNorth,
+            magField_OutEast,magField_OutUp, proximity_Output;
     SensorManager sensorManager;
-    Sensor tempSensor, pressureSensor, humiditySensor, magFieldSensor, rotationSensor, proximitySensor;
+    Sensor tempSensor, pressureSensor, humiditySensor, magFieldSensor, proximitySensor;
     Boolean isSensorAvailable;
 
 
@@ -35,10 +38,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         magField_OutNorth = findViewById(R.id.txtView_magField_Sensor);
         magField_OutEast= findViewById(R.id.txtView_magField_Sensor2);
         magField_OutUp = findViewById(R.id.txtView_magField_Sensor3);
-        rotationX_Output = findViewById(R.id.txtView_Rot_Sensor);
-        rotationY_Output = findViewById(R.id.txtView_Rot_Sensor2);
-        rotationZ_Output = findViewById(R.id.txtView_Rot_Sensor3);
         proximity_Output = findViewById(id.txtView_proximity_Sensor);
+
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             temp_Output.setText("Temp is not available!!");
             isSensorAvailable = false;
         }
-
         if (sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE) != null) {
             pressureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
             isSensorAvailable = true;
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             pressure_Output.setText("Pressure is not available!!");
             isSensorAvailable = false;
         }
-
         if (sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY) != null) {
             humiditySensor = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
             isSensorAvailable = true;
@@ -74,15 +73,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             magField_OutUp.setText("Location is not available!!");
             isSensorAvailable = false;
         }
-        if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
-            rotationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-            isSensorAvailable = true;
-        } else {
-            rotationX_Output.setText("Rotation is not available!!");
-            rotationY_Output.setText("Rotation is not available!!");
-            rotationZ_Output.setText("Rotation is not available!!");
-            isSensorAvailable = false;
-        }
         if (sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY) != null) {
             proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
             isSensorAvailable = true;
@@ -90,6 +80,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             proximity_Output.setText("Proximity is not available!!");
             isSensorAvailable = false;
         }
+
+        Button lumin = findViewById(id.btn_Lumin);
+        lumin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(MainActivity.this, Luminosity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -100,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             sensorManager.registerListener(this,pressureSensor,SensorManager.SENSOR_DELAY_NORMAL);
             sensorManager.registerListener(this,humiditySensor,SensorManager.SENSOR_DELAY_NORMAL);
             sensorManager.registerListener(this,magFieldSensor,SensorManager.SENSOR_DELAY_NORMAL);
-            sensorManager.registerListener(this,rotationSensor,SensorManager.SENSOR_DELAY_NORMAL);
             sensorManager.registerListener(this,proximitySensor,SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
@@ -129,11 +128,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
            magField_OutEast.setText(event.values[1] + "uT");
            magField_OutUp.setText(event.values[2] + "uT");
        }
-       else if (event.sensor.getType()==Sensor.TYPE_ACCELEROMETER){
-           rotationX_Output.setText(event.values[0] + "Deg");
-           rotationY_Output.setText(event.values[1] + "Deg");
-           rotationZ_Output.setText(event.values[2] + "Deg");
-       }
        else if (event.sensor.getType()==Sensor.TYPE_PROXIMITY) {
            proximity_Output.setText(event.values[0] + "cm");
        }
@@ -144,4 +138,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
+
+
 }
